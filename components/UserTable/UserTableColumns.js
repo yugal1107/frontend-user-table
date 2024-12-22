@@ -34,6 +34,7 @@ export const getUserTableColumns = () => [
     ),
     enableSorting: false,
     enableHiding: false,
+    enableFiltering: false,
   },
   {
     accessorKey: "name",
@@ -42,20 +43,15 @@ export const getUserTableColumns = () => [
         <Button
           variant="ghost"
           onClick={() => column.toggleSorting(column.getIsSorted() === "asc")}
-          className={cn(
-            "hover:bg-muted hover:text-primary",
-            "active:bg-muted/70",
-            "transition-colors"
-          )}
+          className="hover:bg-muted hover:text-primary active:bg-muted/70 transition-colors"
         >
           Name
           <ArrowUpDown className="ml-2 h-4 w-4" />
         </Button>
       );
     },
-    cell: ({ row }) => (
-      <div className="font-medium">{row.getValue("name")}</div>
-    ),
+    cell: ({ row }) => <div className="font-medium">{row.getValue("name")}</div>,
+    enableFiltering: true,
   },
   {
     accessorKey: "email",
@@ -64,53 +60,32 @@ export const getUserTableColumns = () => [
         <Button
           variant="ghost"
           onClick={() => column.toggleSorting(column.getIsSorted() === "asc")}
+          className="hover:bg-muted hover:text-primary active:bg-muted/70 transition-colors"
         >
           Email
           <ArrowUpDown className="ml-2 h-4 w-4" />
         </Button>
       );
     },
-    cell: ({ row }) => <div className="lowercase">{row.getValue("email")}</div>,
+    cell: ({ row }) => <div>{row.getValue("email")}</div>,
+    enableFiltering: true,
   },
   {
     accessorKey: "username",
     header: "Username",
-    cell: ({ row }) => (
-      <div className="lowercase">{row.getValue("username")}</div>
-    ),
+    cell: ({ row }) => <div>{row.getValue("username")}</div>,
+    enableFiltering: true,
   },
   {
     accessorKey: "phone",
     header: "Phone",
-    cell: ({ row }) => <div className="lowercase">{row.getValue("phone")}</div>,
+    cell: ({ row }) => <div>{row.getValue("phone")}</div>,
+    enableFiltering: true,
   },
   {
     id: "actions",
     enableHiding: false,
-    cell: ({ row }) => {
-      const user = row.original;
-
-      return (
-        <DropdownMenu>
-          <DropdownMenuTrigger asChild>
-            <Button variant="ghost" className="h-8 w-8 p-0">
-              <span className="sr-only">Open menu</span>
-              <MoreHorizontal className="h-4 w-4" />
-            </Button>
-          </DropdownMenuTrigger>
-          <DropdownMenuContent align="end">
-            <DropdownMenuLabel>Actions</DropdownMenuLabel>
-            <DropdownMenuItem
-              onClick={() => navigator.clipboard.writeText(user.id.toString())}
-            >
-              Copy user ID
-            </DropdownMenuItem>
-            <DropdownMenuSeparator />
-            <DropdownMenuItem>View user details</DropdownMenuItem>
-            <DropdownMenuItem>Edit user</DropdownMenuItem>
-          </DropdownMenuContent>
-        </DropdownMenu>
-      );
-    },
+    enableFiltering: false,
+    cell: ({ row }) => <UserActionMenu user={row.original} />,
   },
 ];

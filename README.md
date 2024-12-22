@@ -10,7 +10,6 @@ This project is a user table management system built using modern web technologi
 - **Shadcn UI**: A component library for building accessible and customizable UI components.
 - **TanStack Query**: A powerful data-fetching library for managing server-state in React applications.
 - **TanStack Table**: A headless utility for building powerful tables and data grids in React.
-- **Radix UI**: A set of low-level primitives for building accessible, high-quality design systems and web apps.
 - **Lucide Icons**: A set of beautiful and customizable icons for React.
 
 ## Installation
@@ -54,7 +53,7 @@ The project follows a structured workflow to ensure maintainability and scalabil
 1. **Component-Based Architecture**: The application is divided into reusable components, making it easy to manage and scale.
 2. **State Management**: TanStack Query is used for managing server-state and data fetching, ensuring a smooth and responsive user experience.
 3. **Data Tables**: TanStack Table is used to create powerful and customizable tables with features like search, sorting, filtering, and pagination.
-4. **UI Components**: Shadcn UI and Radix UI are used to build accessible and customizable UI components, providing a consistent look and feel across the application.
+4. **UI Components**: Shadcn UI is used to build accessible and customizable UI components, providing a consistent look and feel across the application.
 5. **Styling**: Tailwind CSS is used for styling, allowing for rapid UI development with utility-first classes.
 6. **Icons**: Lucide Icons are used for adding beautiful and customizable icons to the application.
 

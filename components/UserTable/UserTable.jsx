@@ -50,6 +50,7 @@ export default function UserTable({ page }) {
       columnVisibility,
       rowSelection,
     },
+    enableFiltering: true,
   });
 
   if (isLoading) return <div>Loading...</div>;
