@@ -19,7 +19,7 @@ import {
   TableRow,
 } from "@/components/ui/table";
 import { getUsers } from "@/lib/api";
-import { getUserTableColumns } from "../UserTableColumns";
+import { getUserTableColumns } from "./UserTableColumns";
 import { TableFilters } from "./TableFilters";
 import { Pagination } from "./Pagination";
 
